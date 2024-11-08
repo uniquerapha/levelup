@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Level Up</title>
+    <link rel="stylesheet" href="./styles/globals.css">
+</head>
+<body>
+    <div class="navbar">
+        <div class="header-inner-content show-menu">
+            <h1 class="logo">LEVEL <span>UP</span></h1>
+            <nav id="navbar">
+                <ul>
+                    <li><a href="index.html">Início</a></li>
+                    <li><a href="produtos.html">Produtos</a></li>
+                    <li><a href="sobre.html">Sobre</a></li> <!-- Link para a página sobre.html -->
+                    <li><a href="contato.html">Contato</a></li>
+                    <li class="account-link" onclick="openSignupModal()">Conta</li>
+                </ul>
+            </nav>
+            <div class="nav-icon-container">
+                <img src="./images/cart.png" onclick="openCartModal()" />
+                <img src="./images/menu.png" class="menu-button" onclick="toggleMenu()" />
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de Cadastro -->
+    <div id="signupModal" class="signup-modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeSignupModal()">&times;</span> <!-- Botão de fechar -->
+            <h2>Cadastro</h2>
+            <form id="signupForm" onsubmit="submitForm(event)">
+                <label for="name">Nome:</label>
+                <input type="text" id="name" placeholder="Seu nome" required><br>
+                <label for="email">E-mail:</label>
+                <input type="email" id="email" placeholder="Seu e-mail" required><br>
+                <label for="password">Senha:</label>
+                <input type="password" id="password" placeholder="Sua senha" required><br>
+                <label for="confirm-password">Confirmar Senha:</label>
+                <input type="password" id="confirm-password" placeholder="Confirme sua senha" required><br>
+                <button type="submit">Cadastrar</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal de Carrinho -->
+    <div id="cartModal" class="cart-modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeCartModal()">&times;</span>
+            <h2>Carrinho</h2>
+            <div id="cartItemsList"></div>
+            <button onclick="checkout()">Finalizar Compra</button>
+        </div>
+    </div>
+
+    <header>
+        <div class="header-inner-content">
+            <div class="header-bottom-side">
+                <div class="header-bottom-side-left">
+                    <h2>Conecte-se ao que há de melhor em tecnologia: descubra nossos eletrônicos incríveis!</h2>
+                    <p>Seja o protagonista da sua jornada gamer! Em nossa loja, você encontra uma seleção incrível de produtos. Venha descobrir tudo o que preparamos para você!</p>
+                    <button onclick="scrollToProducts()">Veja agora &#8594;</button>
+                </div>
+                <div class="header-bottom-side-right">
+                    <img src="./images/setup.jpg" alt="">
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="blue-background"></div>
+        <div class="page-inner-content"></div>
+        <div class="cols cols-3"></div>
+        <img src="./images/produtos-loja/produto-1.png" alt="Produto 1" />
+        <img src="./images/produtos-loja/produto-2.png" alt="Produto 2" />
+        <img src="./images/produtos-loja/produto-3.png" alt="Produto 3" />
+
+        <div id="produtos" class="blue-background"></div>
+            <div class="pager-inner-content">
+                <h3 class="section-title">Produtos</h3>
+                <div class="subtitle-underline"></div>
+                <div class="cols-4">
+                    <div class="product">
+                        <img src="./images/produtos-loja/produto-4.png" alt="Combo Gamer"/>
+                        <p class="product-name">Combo Gamer</p>
+                        <p class="rate">&#9733;&#9733;&#9733;&#9733;&#9733;</p>
+                        <p class="product-price">400,00<span> Reais</span></p>
+                    </div>
+                    <div class="product">
+                        <img src="./images/produtos-loja/produto-5.png" alt="Geforce GTX 1650"/>
+                        <p class="product-name">Geforce GTX 1650</p>
+                        <p class="rate">&#9733;&#9733;&#9733;&#9733;&#9733;</p>
+                        <p class="product-price">999,99<span> Reais</span></p>
+                    </div>
+                    <div class="product">
+                        <img src="./images/produtos-loja/produto-6.png" alt="Controle PS5"/>
+                        <p class="product-name">Controle PS5</p>
+                        <p class="rate">&#9733;&#9733;&#9733;&#9734;&#9734;</p>
+                        <p class="product-price">469,00<span> Reais</span></p>
+                    </div>
+                    <div class="product">
+                        <img src="./images/produtos-loja/produto-7.png" alt="Cadeira Gamer"/>
+                        <p class="product-name">Cadeira Gamer</p>
+                        <p class="rate">&#9733;&#9733;&#9733;&#9733;&#9734;</p>
+                        <p class="product-price">510,00<span> Reais</span></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="pager-inner-content">
+            <h3 class="section-title">Outros produtos</h3>
+            <div class="subtitle-underline"></div>
+            <div class="cols-4">
+                <div class="product">
+                    <img src="./images/produtos-loja/produto-8.png" alt="Suporte com Cooler"/>
+                    <p class="product-name">Suporte com Cooler</p>
+                    <p class="rate">&#9733;&#9733;&#9733;&#9734;&#9734;</p>
+                    <p class="product-price">40,00<span> Reais</span></p>
+                </div>
+                <div class="product">
+                    <img src="./images/produtos-loja/produto-9.png" alt="Volante Logitech G29"/>
+                    <p class="product-name">Volante Logitech G29</p>
+                    <p class="rate">&#9733;&#9733;&#9733;&#9733;&#9734;</p>
+                    <p class="product-price">1.690,90<span> Reais</span></p>
+                </div>
+                <div class="product">
+                    <img src="./images/produtos-loja/produto-10.png" alt="PC Gamer"/>
+                    <p class="product-name">PC Gamer</p>
+                    <p class="rate">&#9733;&#9733;&#9733;&#9733;&#9734;</p>
+                    <p class="product-price">2.100,00<span> Reais</span></p>
+                </div>
+                <div class="product">
+                    <img src="images/produtos-loja/monitorgamer.jpg" alt="PC Gamer"/>
+                    <p class="product-name">Monitor Gamer</p>
+                    <p class="rate">&#9733;&#9733;&#9733;&#9733;&#9733;</p>
+                    <p class="product-price">3.399,99<span> Reais</span></p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="./scripts/main.js"></script>
+</body>
+</html>
