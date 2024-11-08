@@ -1,0 +1,613 @@
+/* Reseta os estilos básicos e define um box-sizing consistente */
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+/* Estilos básicos do corpo */
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Estilos para a barra de navegação */
+.navbar {
+    background-color: #ADD8E6;
+    padding: 1rem;
+    position: sticky;
+    top: 0;
+    box-shadow: 10px 0px 10px #2c2c2c;
+    z-index: 99;
+}
+
+.navbar > div {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+}
+
+.logo {
+    color: azure;
+    font-size: 2rem; /* Tamanho padrão da logo */
+}
+
+.logo span {
+    color: #87CEEB;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    align-items: center;
+}
+
+.nav-icon-container {
+    display: flex;
+    align-items: center;
+}
+
+.nav-icon-container img {
+    width: 30px;
+    cursor: pointer;
+}
+
+.nav-icon-container img:first-child {
+    margin-right: 1rem;
+}
+
+nav ul li {
+    color: #fff;
+    margin-right: 1.5rem;
+    cursor: pointer;
+}
+
+nav ul li a { /* Estilo para os links de navegação */
+    color: #fff; /* Cor branca para o texto */
+    text-decoration: none; /* Remove o sublinhado do link */
+    padding: 10px;
+    display: inline-block; /* Garante que o link ocupe o tamanho adequado */
+}
+
+nav ul li a:hover {
+    color: #87CEEB; /* Muda a cor do texto ao passar o mouse */
+}
+
+nav ul li:hover {
+    transform: translateY(-5px);
+    transition: all 0.2s;
+    font-weight: bold;
+}
+
+/* Menu hamburguer - escondido por padrão */
+.menu-button {
+    display: none;
+}
+
+/* Estilo para o cabeçalho */
+header {
+    background-image: radial-gradient(#fff, #B0E0E6);
+}
+
+.header-inner-content {
+    max-width: 1300px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Layout para a parte de conteúdo do header */
+.header-bottom-side {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    justify-self: center;
+    padding: 1rem;
+}
+
+.header-bottom-side-left {
+    height: 100%;
+    flex-basis: 50%;
+    padding-right: 2rem;
+}
+
+.header-bottom-side-left h2 {
+    font-size: 3.2rem;
+    margin-bottom: 1.5rem;
+}
+
+.header-bottom-side-left p {
+    line-height: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.header-bottom-side-left button {
+    background-color: #0084ff;
+    border: none;
+    cursor: pointer;
+    padding: 0.8rem 3.8rem;
+    border-radius: 9999px;
+    color: #fff;
+    font-weight: 500;
+    font-size: 1rem;
+    transition: all 0.2s;
+}
+
+.header-bottom-side-left button:hover {
+    background-color: #004c94;
+}
+
+.header-bottom-side-right {
+    flex-basis: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.header-bottom-side-right img {
+    width: 100%;
+    border: none;
+    border-radius: 9999px;
+    max-width: 100%; /* Garante que a imagem ocupe a largura disponível */
+    height: auto; /* Ajusta a altura proporcionalmente */
+}
+
+/* Responsividade para telas pequenas e dispositivos móveis */
+@media (max-width: 800px) {
+    .logo {
+        font-size: 1.5rem;
+    }
+
+    /* Header com layout em coluna no celular */
+    .header-bottom-side {
+        flex-direction: column;
+        text-align: center;
+        padding-top: 4rem;
+    }
+
+    /* Navbar em dispositivos móveis */
+    nav {
+        position: absolute;
+        background-color: #ADD8E6;
+        width: 100%;
+        top: 46px;
+        display: none; /* Esconde o menu por padrão */
+    }
+
+    nav.show-menu {
+        display: block; /* Exibe o menu quando a classe show-menu é adicionada */
+    }
+
+    nav ul {
+        flex-direction: column;
+        text-align: center;
+        padding: 0.8rem;
+    }
+
+    nav ul li {
+        margin-right: 0;
+        padding: 10px;
+    }
+
+    /* Estilo para o ícone de menu */
+    .menu-button {
+        display: block;
+    }
+
+    /* Ajuste para as imagens de produto */
+    .product img {
+        width: 100%;
+    }
+}
+
+/* Responsividade para telas muito pequenas, como celulares em modo retrato */
+@media (max-width: 480px) {
+    .header-bottom-side-left h2 {
+        font-size: 2rem; /* Diminui o tamanho do título */
+    }
+
+    .header-bottom-side-left p {
+        font-size: 0.9rem;
+    }
+
+    .header-bottom-side-left button {
+        padding: 0.8rem 2rem;
+        font-size: 0.9rem;
+    }
+
+    .header-bottom-side-right img {
+        width: 80%; /* Ajuste a imagem para caber bem na tela */
+    }
+
+    /* Modifica o layout das colunas para uma coluna única */
+    .cols-3 {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .cols-4 {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    /* Ajustes no modal */
+    .signup-modal .modal-content {
+        width: 80%;
+    }
+
+    .signup-modal {
+        display: none; /* Mantenha o modal escondido por padrão */
+    }
+}
+
+/* Estilos para o modal de cadastro */
+.signup-modal {
+    display: none; /* Modal está escondido por padrão */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Cor de fundo semitransparente */
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+/* Conteúdo do modal */
+.modal-content {
+    background-color: #fff;
+    padding: 2rem;
+    border-radius: 8px;
+    width: 400px;
+    position: relative;
+}
+
+/* Botão de fechar */
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: #333;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.close-btn:hover {
+    color: #f00; /* Muda a cor quando o mouse passa por cima */
+}
+
+/* Estilo dos campos do formulário */
+form label {
+    display: block;
+    margin-top: 1rem;
+}
+
+form input {
+    width: 100%;
+    padding: 0.8rem;
+    margin-top: 0.3rem;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+}
+
+form button {
+    margin-top: 1.5rem;
+    padding: 0.8rem 2rem;
+    background-color: #0084ff;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+form button:hover {
+    background-color: #004c94;
+}
+
+main {
+    background-color: #f5f5f5;
+}
+
+.blue-background {
+    background-color: #1b4e5f;
+    height: 100px;
+    display: flex; /* Faz o contêiner com fundo azul alinhar seus itens horizontalmente */
+    justify-content: space-between; /* Alinha as imagens à esquerda e à direita */
+    padding: 2rem 0;
+}
+
+.blue-background img {
+    max-width: 100%; /* Garante que as imagens não ultrapassem o limite do contêiner */
+    height: auto;
+    margin: 0 1rem; /* Adiciona algum espaço entre as imagens */
+}
+
+.page-inner-content {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.cols {
+    display: grid;
+    justify-content: space-evenly;
+    padding: 4rem 1rem;
+}
+
+.cols-3 {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 3rem;
+}
+
+.cols-3 img {
+    max-width: 100%;
+}
+
+.cols-4 {
+    display: grid;
+    align-items: center;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+}
+
+.cols > * {
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.cols > *:hover {
+    transform: translateY(-5px);
+}
+
+img {
+    display: inline-block;
+    margin: 0 auto;
+    max-width: 100%;
+}
+
+.product img {
+    padding: 4rem 1rem;
+    cursor: pointer;
+    align-items: center;
+    width: 100%;
+    max-width: 200px;
+    transition: transform 0.3s, box-shadow 0.3s;
+    margin: 0 auto;
+}
+
+.product img:hover {
+    transform: scale(1.0);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.section-title {
+    text-align: center;
+    margin-top: 4rem;
+    font-size: 1.8rem;
+}
+
+.subtitle-underline {
+    width: 100px;
+    height: 5px;
+    background-color: #004c94;
+    border-radius: 9999px;
+    margin: 8px auto 0 auto;
+}
+
+.product {
+    margin-bottom: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%; /* Garante que a largura do produto ocupe todo o espaço disponível */
+    text-align: center; /* Centraliza o texto dentro do produto */
+}
+
+.product-name {
+    padding: 0rem 1rem;
+    font-weight: 600;
+    margin-top: 0.4rem;
+}
+
+.rate {
+    padding: 0;
+    color: darkcyan;
+}
+
+/* Adicionando estilo para o modal */
+.signup-modal {
+    display: none; /* Escondido por padrão */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Cor de fundo semitransparente */
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+}
+
+.modal-content {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    width: 300px;
+    text-align: center;
+}
+
+.modal-content input {
+    width: 100%;
+    padding: 8px;
+    margin: 8px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+button {
+    background-color: #0084ff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100%;
+}
+
+button:hover {
+    background-color: #004c94;
+}
+
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+@media (max-width: 800px) {
+    .modal-content {
+        width: 80%;
+    }
+}
+
+/* Estilos para o modal de carrinho */
+.cart-modal {
+    display: none; /* Modal está escondido por padrão */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Cor de fundo semitransparente */
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+/* Conteúdo do modal do carrinho */
+.cart-modal .modal-content {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    width: 300px;
+    text-align: center;
+    overflow-y: auto;
+}
+
+.cart-modal img, .signup-modal img {
+    display: block;
+    margin: 0 auto; /* Centraliza as imagens nos modais */
+}
+
+/* Cart item styles */
+.cart-item {
+    padding: 1rem;
+    border-bottom: 1px solid #ddd;
+}
+
+.cart-item p {
+    margin-bottom: 0.5rem;
+}
+
+.cart-modal button {
+    background-color: #0084ff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100%;
+}
+
+.cart-modal button:hover {
+    background-color: #004c94;
+}
+
+/* Estilos para o botão de adicionar ao carrinho */
+.product img {
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.product img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Adiciona rolagem suave em toda a página */
+html {
+    scroll-behavior: smooth;
+}
+
+.account-link:hover {
+    color: #87CEEB;
+}
+
+/* Contêiner para as imagens */
+.image-container {
+    display: flex;           /* Ativa o Flexbox */
+    justify-content: center; /* Centraliza as imagens horizontalmente */
+    gap: 20px;               /* Adiciona espaço entre as imagens */
+    padding: 20px;           /* Adiciona padding ao redor do contêiner (opcional) */
+}
+
+/* As imagens dentro do contêiner */
+.image-container img {
+    width: 450px;  /* Define a largura das imagens (ajuste conforme necessário) */
+    height: auto;  /* Ajusta a altura proporcionalmente */
+    max-width: 100%;
+}
+
+/* Estilos para a seção de contato */
+.contact-section {
+    background-color: #f5f5f5; /* Fundo claro */
+    padding: 2rem;
+    text-align: center;
+    margin-top: 2rem; /* Espaço acima */
+}
+
+.contact-section h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.contact-section p {
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+/* Contêiner dos ícones */
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 20px; /* Espaço entre os ícones */
+    margin-top: 20px;
+}
+
+/* Estilo dos ícones de redes sociais */
+.social-icon {
+    width: 50px;  /* Ajuste o tamanho do ícone */
+    height: 50px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.social-icon:hover {
+    transform: scale(1.1);  /* Efeito de zoom no hover */
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+/* Estilos adicionais para a seção de produtos */
+.produtos-section {
+    padding: 4rem 0;
+    background-color: #f9f9f9;
+    text-align: center;
+}
